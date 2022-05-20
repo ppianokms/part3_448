@@ -1,0 +1,140 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Turky</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin="" />
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin="">
+</script>
+
+<style>
+  #mapid{
+    height: 800px;
+  }
+</style>
+
+<script>
+var map = L.map("mapid").setView([38.992294686767046, 35.409936709506255],6);
+var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+var gsat = L.tileLayer("https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}").addTo(map);
+var baseMaps = {
+
+    OSM:osm,
+    GoogleSat:gsat,
+};
+</script>
+
+
+</head>
+<style>
+body{
+background-color: FFCCCC;
+}
+h1 {background-color: FF3399}
+h1 {background-size:700}
+h1 {border-radius: 25px;}
+
+</style>
+</head>
+</body>
+
+<body>
+  <h1 style="color:FFFFFF;" align = 'center'> 5 สถานที่ท่องเที่ยวยอดฮิต <br> 📍 ประเทศตุรกี 📍</h1>
+  <div id="map" style="width: 1420px; height: 600px"></div>
+
+<script>
+ var map = L.map('map').setView([38.992294686767046, 35.409936709506255],6);
+
+ mapLink ='<a href="http://openstreetmap.org">khemoapson</a>';
+
+ L.tileLayer(
+   'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+   attribution: 'Map data &copy; ' + mapLink,
+   maxZoom: 18,
+}).addTo(map);
+var greenIcon = L.icon({
+iconUrl: 'https://map.longdo.com/mmmap/images/pin_mark.png',
+
+iconSize: [38, 60], // size of the icon
+shadowSize: [50, 64], // size of the shadow
+iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+shadowAnchor: [4, 62], // the same for the shadow
+popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+var marker = L.marker([41.0054905441573, 28.976803068966],
+  {
+    icon: greenIcon,
+    draggable :true,
+    title:'มัสยิดสีน้ำเงิน',
+    opacity:1.5
+  }
+)
+  .addTo(map)
+  .bindPopup("<b>BLUE MOSQUS</b>")
+  .openPopup();
+
+var marker = L.marker([37.034009035085525, 27.435690692055907],
+    {
+      icon: greenIcon,
+      draggable :true,
+      title:'เมืองโบดรัม',
+      opacity:1.5
+    }
+  )
+    .addTo(map)
+    .bindPopup("<b>BODRUM</b></b>")
+    .openPopup();
+
+var marker = L.marker([37.9809092860619, 38.7407685681996],
+      {
+        icon: greenIcon,
+        draggable :true,
+        title:'หุบเขาแห่งเทพเจ้า',
+        opacity:1.5
+      }
+    )
+      .addTo(map)
+      .bindPopup("<b>MOUNT NEMRUT</b>")
+      .openPopup();
+
+var marker = L.marker([41.2267142324743, 29.1302393397494],
+        {
+          icon: greenIcon,
+          draggable :true,
+          title:'ช่องแคบบอสฟอรัส',
+          opacity:1.5
+        }
+      )
+        .addTo(map)
+        .bindPopup("<b>BOSPHORUS</b>")
+        .openPopup();
+
+var marker = L.marker([37.0857287156698, 33.399534934301],
+          {
+            icon: greenIcon,
+            draggable :true,
+            title:'พาซาแบค',
+            opacity:1.5
+          }
+        )
+          .addTo(map)
+          .bindPopup("<b>PASABAG</b>")
+          .openPopup();
+
+
+
+
+L.control.layers(baseMaps).addTo(map);
+</script>
+</body>
+</html>
